@@ -34,6 +34,24 @@
       --coming-text:#a1a1aa;
     }
 
+    @keyframes warriorGlow{
+      0%{
+        box-shadow:
+          0 14px 30px rgba(53,88,255,.22),
+          0 0 24px rgba(255,39,214,.16);
+      }
+      50%{
+        box-shadow:
+          0 18px 36px rgba(53,88,255,.28),
+          0 0 32px rgba(255,39,214,.24);
+      }
+      100%{
+        box-shadow:
+          0 14px 30px rgba(53,88,255,.22),
+          0 0 24px rgba(255,39,214,.16);
+      }
+    }
+
     body{
       min-height:100vh;
       display:flex;
@@ -78,23 +96,18 @@
       margin-bottom:12px;
     }
 
-    .site-link{
-      display:inline-block;
-      margin-bottom:22px;
-      padding:10px 14px;
-      border-radius:999px;
-      text-decoration:none;
-      color:#fff;
+    .site-link-text{
+      display:block;
+      margin-bottom:18px;
       font-size:.9rem;
-      font-weight:700;
-      border:1px solid rgba(255,255,255,.1);
-      background:rgba(255,255,255,.04);
-      transition:transform .2s ease, background .2s ease;
+      color:rgba(255,255,255,.7);
+      text-decoration:none;
+      font-weight:600;
+      transition:color .2s ease;
     }
 
-    .site-link:hover{
-      transform:translateY(-1px);
-      background:rgba(255,255,255,.07);
+    .site-link-text:hover{
+      color:#fff;
     }
 
     .hub-panel{
@@ -112,8 +125,13 @@
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:#8e8e8e;
-      margin-bottom:8px;
+      margin-top:6px;
+      margin-bottom:10px;
       font-weight:700;
+    }
+
+    .section-label:first-of-type{
+      margin-top:0;
     }
 
     .run-button{
@@ -124,7 +142,7 @@
       width:100%;
       min-height:86px;
       padding:16px 18px;
-      margin:10px 0;
+      margin:8px 0;
       text-align:left;
       text-decoration:none;
       border-radius:16px;
@@ -185,6 +203,7 @@
         0 0 24px rgba(255,39,214,.16);
       position:relative;
       overflow:hidden;
+      animation:warriorGlow 2.5s ease-in-out infinite;
     }
 
     .warrior::after{
@@ -198,9 +217,6 @@
     }
 
     .warrior:hover{
-      box-shadow:
-        0 16px 34px rgba(53,88,255,.28),
-        0 0 28px rgba(255,39,214,.22);
       filter:brightness(1.03);
     }
 
@@ -218,6 +234,13 @@
 
     .coming-soon .run-help{
       color:#8f8f98;
+    }
+
+    .trust-line{
+      margin-top:14px;
+      font-size:.85rem;
+      color:#7a7a7a;
+      text-align:center;
     }
 
     .hub-help{
@@ -264,11 +287,12 @@
 
     <h1>Choose Your Tracker</h1>
     <p class="subtext">
-      Select the run you purchased below to open your tracker.
+      Select the run you purchased below to open your tracker.<br>
+      Only choose the run you’ve paid for.
     </p>
 
-    <a href="https://www.walkrunwrestle.com" class="site-link" target="_blank" rel="noopener noreferrer">
-      Back to WalkRunWrestle.com
+    <a href="https://www.walkrunwrestle.com" class="site-link-text" target="_blank" rel="noopener noreferrer">
+      ← walkrunwrestle.com
     </a>
 
     <div class="hub-panel">
@@ -305,6 +329,10 @@
         <div class="run-meta">Coming Soon</div>
         <div class="run-help">This challenge is not live yet.</div>
       </div>
+    </div>
+
+    <div class="trust-line">
+      No apps. No accounts. Just your run.
     </div>
 
     <div class="hub-help">
