@@ -59,6 +59,80 @@
 
     /* Active / clickable runs */
     .active {
+      background-color: #048d64;  /* your WRW green */
+      color: #fff;
+      border: 2px solid #048d64;
+    }
+
+    .active:hover {
+      background-color: #036c4b; /* darker green on hover */
+      border-color: #036c4b;
+    }
+
+    /* Coming soon */
+    .coming-soon {
+      background: #333;
+      color: #777;
+      cursor: not-allowed;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <img src="logo wrw1.png" alt="WRW Logo" class="logo">
+
+  <!-- Tagline -->
+  <div class="tagline">Your Run. Your Way.</div>
+
+  <!-- Buttons -->
+  <a href="https://walkrunwrestle.github.io/rattlesnake/" class="run-button active">RATTLESNAKE 10K</a>
+  <a href="https://walkrunwrestle.github.io/warrior/" class="run-button active">WARRIOR 21K</a>
+  <div class="run-button coming-soon">LEGEND 3 (COMING SOON)</div>
+  <div class="run-button coming-soon">LEGEND 4 (COMING SOON)</div>
+  <div class="run-button coming-soon">LEGEND 5 (COMING SOON)</div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 Walk Run Wrestle. All Rights Reserved.
+  </footer>
+
+</body>
+</html>      color: #ddd;
+      text-align: center;
+    }
+
+    /* Buttons */
+    .run-button {
+      display: block;
+      width: 260px;
+      padding: 15px 20px;
+      margin: 10px 0;
+      font-size: 1.1rem;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: transform 0.2s, background 0.2s;
+      border: 2px solid #fff;
+    }
+
+    .run-button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Active / clickable runs */
+    .active {
       background: linear-gradient(45deg, #ff4a00, #ffb600);
       color: #111;
     }
