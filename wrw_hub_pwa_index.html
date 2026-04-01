@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walk Run Wrestle Hub</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111111">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="WRW Hub">
+<link rel="apple-touch-icon" href="Logo wrw1.png">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{
+  min-height:100vh;display:flex;justify-content:center;padding:16px 12px;color:#fff;
+  background:radial-gradient(700px 320px at 50% 0%, rgba(4,141,100,.18), transparent 60%),linear-gradient(180deg,#111,#080808);
+}
+.wrap{width:100%;max-width:480px;text-align:center;}
+.logo{max-width:250px;margin:14px auto 8px;display:block;}
+.app-box{margin:10px 0 14px;padding:10px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);}
+.app-title{font-weight:900;font-size:.9rem;}
+.app-text{font-size:.8rem;color:#aaa;margin-top:4px;line-height:1.35;}
+.app-btn{margin-top:8px;padding:10px 12px;border-radius:12px;background:#2a2a2f;border:1px solid #3a3a42;color:#fff;font-weight:800;cursor:pointer;}
+.app-btn.primary{background:linear-gradient(135deg,#048d64,#06a879);border-color:#048d64;}
+.app-btn:disabled{opacity:.5;cursor:not-allowed;}
+h1{font-size:1.9rem;font-weight:900;margin-bottom:6px;}
+.subtext{color:rgba(255,255,255,.75);font-size:.92rem;line-height:1.4;margin-bottom:10px;}
+.site-button{display:inline-block;margin-bottom:14px;padding:10px 16px;border-radius:999px;text-decoration:none;color:#fff;font-weight:800;font-size:.85rem;background:#1c1c22;border:1px solid rgba(255,255,255,.08);}
+.hub-panel{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:12px;text-align:left;}
+.section-label{font-size:.72rem;color:#8e8e8e;margin-bottom:8px;font-weight:700;}
+.run-button{display:block;padding:12px;margin:6px 0;border-radius:14px;text-decoration:none;}
+.run-title{font-weight:900;font-size:1rem;}
+.run-meta{font-size:.72rem;margin-top:3px;opacity:.9;text-transform:uppercase;font-weight:700;}
+.run-help{font-size:.78rem;margin-top:3px;opacity:.9;}
+.rattlesnake .run-title,.rattlesnake .run-meta,.rattlesnake .run-help,.warrior .run-title,.warrior .run-meta,.warrior .run-help{color:#fff;text-shadow:0 2px 6px rgba(0,0,0,0.5);}
+.rattlesnake{background:linear-gradient(135deg,#048d64,#06a879);box-shadow:0 10px 22px rgba(4,141,100,.25);}
+.warrior{background:linear-gradient(135deg,#3558ff,#ff27d6);box-shadow:0 12px 26px rgba(255,39,214,.25);transform:scale(1.02);}
+.coming-soon{background:linear-gradient(180deg,#2a2a2f,#1d1d22);color:#a1a1aa;border:1px solid #3a3a42;}
+.trust-line{margin-top:10px;font-size:.8rem;color:#7a7a7a;}
+.hub-help{margin-top:16px;font-size:.85rem;color:#8f8f98;}
+.hub-help a{color:#fff;font-weight:700;text-decoration:none;}
+footer{margin-top:10px;font-size:.8rem;color:#666;}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;padding:20px;z-index:9999;}
+.overlay.show{display:flex;}
+.modal{background:#111;border:1px solid #333;padding:16px;border-radius:16px;max-width:320px;text-align:center;}
+.modal h3{margin-bottom:10px;}
+.modal p{font-size:.85rem;color:#bbb;line-height:1.4;margin-bottom:10px;}
+.close-btn{margin-top:10px;padding:10px;background:#2a2a2f;border:none;border-radius:10px;color:#fff;font-weight:800;cursor:pointer;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<img src="Logo wrw1.png" class="logo" alt="Walk Run Wrestle Logo">
+
+<div class="app-box">
+  <div class="app-title">Use WRW like an app</div>
+  <div class="app-text">Save this to your phone for quick access anytime.</div>
+  <button id="installBtn" class="app-btn primary">Install WRW App</button>
+  <button id="manualInstallBtn" class="app-btn">How to save to home screen</button>
+</div>
+
+<h1>Choose Your Tracker</h1>
+<p class="subtext">Select the run you purchased below.<br>Only choose the run you’ve paid for.</p>
+
+<a href="https://www.walkrunwrestle.com" class="site-button">Visit WalkRunWrestle.com</a>
+
+<div class="hub-panel">
+<div class="section-label">Live Challenges</div>
+
+<a href="https://walkrunwrestle.github.io/Rattv3/" class="run-button rattlesnake">
+<div class="run-title">THE RATTLESNAKE 10K</div>
+<div class="run-meta">Live Now</div>
+<div class="run-help">Start or continue your Rattlesnake challenge.</div>
+</a>
+
+<a href="https://walkrunwrestle.github.io/Warriorv2/" class="run-button warrior">
+<div class="run-title">THE WARRIOR 21K</div>
+<div class="run-meta">Live Now</div>
+<div class="run-help">Start or continue your Warrior challenge.</div>
+</a>
+
+<div class="section-label" style="margin-top:14px;">Coming Soon</div>
+
+<div class="run-button coming-soon"><div class="run-title">LEGEND 3</div><div class="run-meta">Coming Soon</div></div>
+<div class="run-button coming-soon"><div class="run-title">LEGEND 4</div><div class="run-meta">Coming Soon</div></div>
+<div class="run-button coming-soon"><div class="run-title">LEGEND 5</div><div class="run-meta">Coming Soon</div></div>
+</div>
+
+<div class="trust-line">No apps. No accounts. Just your run.</div>
+
+<div class="hub-help">
+Forgot your login? Email us at
+<a href="mailto:Contact@walkrunwrestle.com">Contact@walkrunwrestle.com</a>
+</div>
+
+<footer>&copy; 2026 Walk Run Wrestle</footer>
+</div>
+
+<div id="installPopup" class="overlay">
+  <div class="modal">
+    <h3>Add WRW to your phone</h3>
+    <p><strong>iPhone:</strong><br>Tap Share, then tap Add to Home Screen.</p>
+    <p><strong>Android:</strong><br>Tap the menu (3 dots), then tap Add to Home screen or Install app.</p>
+    <button class="close-btn" id="closePopupBtn">Got it</button>
+  </div>
+</div>
+
+<script>
+let deferredPrompt = null;
+
+const installBtn = document.getElementById("installBtn");
+const manualInstallBtn = document.getElementById("manualInstallBtn");
+const installPopup = document.getElementById("installPopup");
+const closePopupBtn = document.getElementById("closePopupBtn");
+
+function openInstallHelp(){
+  installPopup.classList.add("show");
+}
+function closeInstallHelp(){
+  installPopup.classList.remove("show");
+}
+
+manualInstallBtn.addEventListener("click", openInstallHelp);
+closePopupBtn.addEventListener("click", closeInstallHelp);
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.disabled = false;
+});
+
+installBtn.addEventListener("click", async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    return;
+  }
+  openInstallHelp();
+});
+
+window.addEventListener("appinstalled", () => {
+  installBtn.textContent = "WRW Installed";
+  installBtn.disabled = true;
+});
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
