@@ -28,26 +28,56 @@ color:#fff;
 .wrap{
 max-width:520px;
 margin:auto;
-padding:24px 14px 34px;
+padding:20px 14px 30px;
 }
 
 .logo{
 width:100%;
 max-width:300px;
-margin:10px auto 24px;
+margin:10px auto 18px;
 display:block;
 }
 
 /* HERO */
 .hero{
 text-align:center;
-margin-bottom:24px;
+margin-bottom:18px;
 }
 
 .hero h1{
 font-size:1.9rem;
 font-weight:900;
 margin-bottom:10px;
+}
+
+.subtext{
+max-width:420px;
+margin:0 auto;
+font-size:1rem;
+line-height:1.45;
+color:#b8bdc4;
+}
+
+.hero-arrow{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:42px;
+height:42px;
+margin-top:14px;
+border-radius:999px;
+text-decoration:none;
+background:#1a1d22;
+border:1px solid rgba(255,255,255,.08);
+color:#fff;
+font-size:1.2rem;
+font-weight:900;
+transition:transform .2s ease, background .2s ease;
+}
+
+.hero-arrow:hover{
+transform:translateY(2px);
+background:#20242a;
 }
 
 .eyebrow{
@@ -95,8 +125,8 @@ color:#fff;
 background:rgba(255,255,255,.03);
 border:1px solid rgba(255,255,255,.08);
 border-radius:22px;
-padding:16px;
-margin-bottom:22px;
+padding:14px;
+margin-bottom:18px;
 }
 
 .section-head{
@@ -120,14 +150,14 @@ color:#777;
 /* CHALLENGES */
 .challenge-stack{
 display:grid;
-gap:16px;
+gap:14px;
 }
 
 .run-card{
 display:flex;
 flex-direction:column;
 justify-content:space-between;
-padding:20px;
+padding:18px;
 border-radius:22px;
 text-decoration:none;
 color:#fff;
@@ -214,8 +244,8 @@ color:#888;
 background:#101315;
 border:1px solid rgba(255,255,255,.08);
 border-radius:24px;
-padding:22px;
-margin-bottom:22px;
+padding:18px;
+margin-bottom:18px;
 }
 
 .card-title{
@@ -387,11 +417,8 @@ grid-template-columns:1fr;
 <div class="hero">
 <div class="eyebrow">START YOUR CHALLENGE NOW</div>
 <h1>YOUR WRW HUB</h1>
-</div>
-
-<div class="top-actions">
-<a href="#install-section" class="btn primary">WRW App</a>
-<a href="#before-start" class="btn secondary">New here? Click here</a>
+<p class="subtext">Choose your challenge. Learn how it works and download the app below.</p>
+<a href="#before-start" class="hero-arrow" aria-label="Scroll down">↓</a>
 </div>
 
 <!-- CHALLENGES -->
@@ -436,30 +463,31 @@ grid-template-columns:1fr;
 </div>
 </a>
 
-<div class="run-card coming">
-<div>
-<div class="run-top">
-<div class="run-title">NEXT CHALLENGE</div>
-<div class="badge">COMING SOON</div>
-</div>
-
-<div class="run-line">A new challenge is on the way.</div>
 </div>
 </div>
 
-</div>
-</div>
 
-<!-- BEFORE START -->
+<!-- NEW HERE -->
 <div id="before-start" class="card">
-<div class="card-title">Before you start</div>
-<div class="card-sub">Track your walk or run in Strava or any fitness app, log each session inside your challenge, then send proof when you finish.</div>
+<div class="card-title">New here? How WRW Hub works</div>
+<div class="card-sub">Everything you need to know before you start your challenge.</div>
 
+<div class="install-box" id="howBox" style="margin-top:18px;">
+<button class="install-toggle" onclick="toggleHow()">HOW WRW HUB WORKS</button>
+
+<div class="install-content">
 <div class="steps">
-<div class="step"><div class="step-num">1</div><div class="step-text">Track your run using Strava or any app</div></div>
-<div class="step"><div class="step-num">2</div><div class="step-text">Take a screenshot of each session</div></div>
-<div class="step"><div class="step-num">3</div><div class="step-text">Log your distance inside WRW</div></div>
-<div class="step"><div class="step-num">4</div><div class="step-text">Send proof when complete</div></div>
+<div class="step"><div class="step-num">1</div><div class="step-text">Track your walk or run using Strava or any fitness app you like.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-text">Take a screenshot or keep clear proof of each session.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-text">Log each session inside your WRW challenge tracker.</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-text">When the full challenge is complete, send your proof.</div></div>
+</div>
+
+<div class="info-list">
+<div class="info-item"><strong>You can split the run:</strong> complete your challenge over one or more sessions.</div>
+<div class="info-item"><strong>Proof is needed at the end:</strong> send your proof when the full challenge is complete.</div>
+<div class="info-item"><strong>Your medal follows completion:</strong> once your challenge is complete and proof is sent, we dispatch your medal.</div>
+<div class="info-item"><strong>Any tracker is fine:</strong> Strava is recommended, but any app or device that clearly shows your distance works.</div>
 </div>
 
 <div class="download-grid">
@@ -473,17 +501,6 @@ WRW is not affiliated with or endorsed by Strava. You can use any app or device 
 </p>
 </div>
 </div>
-
-<!-- IMPORTANT INFO -->
-<div class="card">
-<div class="card-title">Your run, your way</div>
-<div class="card-sub">A few key things to know before you begin.</div>
-
-<div class="info-list">
-<div class="info-item"><strong>You can split the run:</strong> complete your challenge over one or more sessions.</div>
-<div class="info-item"><strong>Proof is needed at the end:</strong> send your proof when the full challenge is complete.</div>
-<div class="info-item"><strong>Your medal follows completion:</strong> once your challenge is complete and proof is sent, we dispatch your medal.</div>
-<div class="info-item"><strong>Any tracker is fine:</strong> Strava is recommended, but any app or device that clearly shows your distance works.</div>
 </div>
 </div>
 
@@ -507,7 +524,7 @@ Need help? <a href="mailto:Contact@walkrunwrestle.com">Contact@walkrunwrestle.co
 </div>
 
 <div class="store-wrap">
-<a href="https://www.walkrunwrestle.com" class="btn secondary">Ready for your next challenge? </a>
+<a href="https://www.walkrunwrestle.com" class="btn secondary">Visit WalkRunWrestle.com</a>
 </div>
 
 <div class="trust">No accounts. No pressure. Just your run.</div>
@@ -538,6 +555,10 @@ function toggleInstall(){
   document.getElementById('installBox').classList.toggle('open');
 }
 
+function toggleHow(){
+  document.getElementById('howBox').classList.toggle('open');
+}
+
 function showInstallHelp(){
   alert("To install WRW:\n\nAndroid:\nTap the 3 dots in your browser → Add to Home screen\n\niPhone:\nTap Share → Add to Home Screen");
 }
@@ -552,4 +573,4 @@ if ("serviceWorker" in navigator) {
 </script>
 
 </body>
-</html>
+</html> 
