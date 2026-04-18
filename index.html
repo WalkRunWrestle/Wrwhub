@@ -278,19 +278,20 @@ body{
   color:#ffffff !important;
 }
 
+/* FIXED: COMING SOON NOW PURPLE */
 .coming{
-  color:#6e766f !important;
-  border:1px solid var(--border);
+  color:#ffffff !important;
+  border:1px solid rgba(255,255,255,.18);
   background:
-    radial-gradient(260px 140px at 15% 0%, rgba(230,184,74,.12), transparent 60%),
-    linear-gradient(180deg,#fffdfa,#f7f3ea) !important;
-  box-shadow:var(--shadow-soft);
+    radial-gradient(260px 140px at 15% 0%, rgba(255,255,255,.14), transparent 60%),
+    linear-gradient(135deg,#6a00ff,#b100ff) !important;
+  box-shadow:0 14px 28px rgba(106,0,255,.20);
 }
 
 .coming .badge{
-  background:#ffffff !important;
-  color:#7a817d !important;
-  border:1px solid var(--border);
+  background:rgba(255,255,255,.16) !important;
+  color:#ffffff !important;
+  border:1px solid rgba(255,255,255,.24);
 }
 
 /* CARD */
@@ -508,7 +509,7 @@ footer{
         </div>
       </a>
 
-      <a href="https://www.walkrunwrestle.com" class="run-card coming">
+      <a href="https://www.walkrunwrestle.com" class="run-card coming" target="_blank" rel="noopener noreferrer">
         <div>
           <div class="run-top">
             <div class="run-title">Coming Soon</div>
@@ -584,7 +585,7 @@ footer{
   </div>
 
   <div class="store-wrap">
-    <a href="https://www.walkrunwrestle.com" class="btn secondary">Visit WalkRunWrestle.com</a>
+    <button class="btn secondary" onclick="openSite()">Visit WalkRunWrestle.com</button>
   </div>
 
   <div class="trust">No accounts. No pressure. Just your run.</div>
@@ -617,6 +618,10 @@ function toggleInstall(){
 
 function toggleHow(){
   document.getElementById('howBox').classList.toggle('open');
+}
+
+function openSite(){
+  window.open("https://www.walkrunwrestle.com", "_blank");
 }
 
 function showInstallHelp(){
