@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WRW Hub</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="WRW Hub">
+<meta name="color-scheme" content="light">
+<link rel="apple-touch-icon" href="Logo wrw1.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  color-scheme: light only;
+
+  --bg:#f7f7f4;
+  --bg2:#eef2ed;
+  --white:#ffffff;
+  --panel:#ffffff;
+  --panel-soft:#f8faf7;
+  --border:#dfe5dc;
+  --border-strong:#d1d8ce;
+  --text:#111418;
+  --muted:#66706a;
+  --muted-2:#7c847f;
+  --green:#048d64;
+  --green2:#06a879;
+  --green-soft:#e8f7f1;
+  --sand:#e6b84a;
+  --sand2:#f3d98f;
+  --sand-soft:#fbf6e8;
+  --shadow:0 14px 34px rgba(17,20,24,.07);
+  --shadow-soft:0 10px 24px rgba(17,20,24,.05);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+  background:#ffffff !important;
+}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(850px 420px at 0% 0%, rgba(4,141,100,.08), transparent 60%),
+    radial-gradient(750px 420px at 100% 0%, rgba(230,184,74,.10), transparent 58%),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 100%) !important;
+  color:var(--text) !important;
+}
+
+.wrap{
+  max-width:520px;
+  margin:auto;
+  padding:20px 14px 34px;
+}
+
+.logo{
+  width:100%;
+  max-width:300px;
+  margin:10px auto 18px;
+  display:block;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:1.95rem;
+  font-weight:900;
+  margin-bottom:10px;
+  letter-spacing:-.04em;
+  color:var(--text);
+}
+
+.subtext{
+  max-width:420px;
+  margin:0 auto;
+  font-size:1rem;
+  line-height:1.45;
+  color:var(--muted);
+}
+
+.hero-arrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  margin-top:14px;
+  border-radius:999px;
+  text-decoration:none;
+  background:#ffffff !important;
+  border:1px solid var(--border);
+  color:var(--text) !important;
+  font-size:1.2rem;
+  font-weight:900;
+  box-shadow:var(--shadow-soft);
+  transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.hero-arrow:hover{
+  transform:translateY(2px);
+  background:#fbfcfb !important;
+  box-shadow:0 8px 18px rgba(17,20,24,.07);
+}
+
+.eyebrow{
+  font-size:.75rem;
+  letter-spacing:.15em;
+  color:#8d948f;
+  margin-bottom:10px;
+  font-weight:800;
+}
+
+/* BUTTONS */
+.btn{
+  display:block;
+  width:100%;
+  padding:14px;
+  border-radius:16px;
+  text-align:center;
+  font-weight:900;
+  text-decoration:none;
+  border:none;
+  font-size:1rem;
+  cursor:pointer;
+  transition:transform .18s ease, filter .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.02);
+}
+
+.primary{
+  background:linear-gradient(135deg,var(--green),var(--green2)) !important;
+  color:#ffffff !important;
+  box-shadow:0 12px 24px rgba(4,141,100,.18);
+}
+
+.secondary{
+  background:#ffffff !important;
+  border:1px solid var(--border);
+  color:var(--text) !important;
+  box-shadow:var(--shadow-soft);
+}
+
+/* PANEL */
+.panel{
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:14px;
+  margin-bottom:18px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(6px);
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+  gap:12px;
+}
+
+.section-label{
+  font-size:.8rem;
+  letter-spacing:.12em;
+  color:#7f8782;
+  font-weight:800;
+}
+
+.section-mini{
+  font-size:.8rem;
+  color:#909893;
+}
+
+/* CHALLENGES */
+.challenge-stack{
+  display:grid;
+  gap:14px;
+}
+
+.run-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:18px;
+  border-radius:24px;
+  text-decoration:none;
+  min-height:154px;
+}
+
+.run-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+}
+
+.run-title{
+  max-width:65%;
+  font-size:1.4rem;
+  font-weight:900;
+  line-height:1.02;
+  letter-spacing:-.03em;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:800;
+  white-space:nowrap;
+  line-height:1;
+}
+
+.run-line{
+  font-weight:800;
+  margin-top:10px;
+  font-size:1rem;
+  line-height:1.35;
+}
+
+.run-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:18px;
+}
+
+.run-reward{
+  font-size:.75rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+.run-arrow{
+  font-size:1rem;
+  font-weight:900;
+}
+
+.rattlesnake{
+  color:#ffffff !important;
+  border:1px solid rgba(255,255,255,.18);
+  background:
+    radial-gradient(260px 140px at 15% 0%, rgba(255,255,255,.12), transparent 60%),
+    linear-gradient(135deg,#048d64,#06a879) !important;
+  box-shadow:0 14px 28px rgba(17,20,24,.08);
+}
+
+.rattlesnake .badge{
+  background:rgba(255,255,255,.18) !important;
+  border:1px solid rgba(255,255,255,.26);
+  color:#ffffff !important;
+}
+
+/* FIXED: COMING SOON NOW PURPLE */
+.coming{
+  color:#ffffff !important;
+  border:1px solid rgba(255,255,255,.18);
+  background:
+    radial-gradient(260px 140px at 15% 0%, rgba(255,255,255,.14), transparent 60%),
+    linear-gradient(135deg,#6a00ff,#b100ff) !important;
+  box-shadow:0 14px 28px rgba(106,0,255,.20);
+}
+
+.coming .badge{
+  background:rgba(255,255,255,.16) !important;
+  color:#ffffff !important;
+  border:1px solid rgba(255,255,255,.24);
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,.97) !important;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:18px;
+  margin-bottom:18px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(6px);
+}
+
+.card-title{
+  font-size:1.7rem;
+  line-height:1.02;
+  letter-spacing:-.04em;
+  font-weight:900;
+  margin-bottom:8px;
+  text-align:center;
+  color:var(--text) !important;
+}
+
+.card-sub{
+  max-width:430px;
+  margin:0 auto;
+  font-size:1rem;
+  line-height:1.5;
+  color:var(--muted) !important;
+  text-align:center;
+}
+
+/* STEPS */
+.steps{
+  margin-top:16px;
+  display:grid;
+  gap:12px;
+}
+
+.step{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.step-num{
+  background:linear-gradient(135deg,var(--green),var(--green2)) !important;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.8rem;
+  font-weight:800;
+  color:#ffffff !important;
+  flex:0 0 28px;
+  box-shadow:0 6px 14px rgba(4,141,100,.18);
+}
+
+.step-text{
+  font-size:.9rem;
+  color:var(--muted) !important;
+  line-height:1.45;
+}
+
+/* IMPORTANT INFO */
+.info-list{
+  display:grid;
+  gap:10px;
+  margin-top:16px;
+}
+
+.info-item{
+  padding:12px 14px;
+  border-radius:16px;
+  background:linear-gradient(180deg,#fbfcfa,#f6f8f4) !important;
+  border:1px solid var(--border);
+  font-size:.92rem;
+  line-height:1.45;
+  color:var(--muted) !important;
+}
+
+.info-item strong{
+  color:var(--text) !important;
+  font-weight:800;
+}
+
+/* DOWNLOAD GRID */
+.download-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:16px;
+}
+
+/* INSTALL */
+.install-box{
+  margin-top:16px;
+}
+
+.install-toggle{
+  width:100%;
+  padding:14px;
+  border-radius:16px;
+  background:#ffffff !important;
+  border:1px solid var(--border);
+  color:var(--text) !important;
+  font-weight:800;
+  text-align:left;
+  box-shadow:var(--shadow-soft);
+  cursor:pointer;
+}
+
+.install-content{
+  display:none;
+  margin-top:12px;
+}
+
+.install-box.open .install-content{
+  display:block;
+}
+
+.help-line{
+  text-align:center;
+  font-size:.9rem;
+  color:var(--muted-2) !important;
+  margin-top:8px;
+}
+
+.help-line a{
+  color:var(--green) !important;
+  text-decoration:none;
+  font-weight:800;
+}
+
+.store-wrap{
+  margin-top:18px;
+}
+
+.trust{
+  text-align:center;
+  font-size:.9rem;
+  color:var(--muted-2) !important;
+  margin-top:18px;
+}
+
+footer{
+  text-align:center;
+  margin-top:20px;
+  color:#8a928d !important;
+  font-size:.8rem;
+}
+
+@media (max-width:420px){
+  .wrap{
+    padding:18px 12px 28px;
+  }
+
+  .hero h1{
+    font-size:1.72rem;
+  }
+
+  .run-title{
+    font-size:1.28rem;
+    max-width:65%;
+  }
+
+  .card-title{
+    font-size:1.5rem;
+  }
+
+  .download-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <img src="hublogo.png" class="logo" alt="Walk Run Wrestle Logo">
+
+  <div class="hero">
+    <div class="eyebrow">START YOUR CHALLENGE NOW</div>
+    <h1>YOUR WRW HUB</h1>
+    <p class="subtext">Choose your challenge. Learn how it works and download the app below.</p>
+    <a href="#before-start" class="hero-arrow" aria-label="Scroll down">↓</a>
+    <a href="https://walkrunwrestle.github.io/Wrw-vault/" class="btn primary" style="margin:14px auto 0; max-width:260px;">Open Card Vault</a>
+  </div>
+
+  <!-- CHALLENGES -->
+  <div class="panel">
+    <div class="section-head">
+      <div class="section-label">CHALLENGES</div>
+      <div class="section-mini">Open your run</div>
+    </div>
+
+    <div class="challenge-stack">
+
+      <a href="https://walkrunwrestle.github.io/RATTLESNAKE_FINAL/" class="run-card rattlesnake">
+        <div>
+          <div class="run-top">
+            <div class="run-title">RATTLESNAKE 10K</div>
+            <div class="badge">LIVE NOW</div>
+          </div>
+
+          <div class="run-line">Log your Rattlesnake progress</div>
+        </div>
+
+        <div class="run-bottom">
+          <div class="run-reward">START HERE</div>
+          <div class="run-arrow">→</div>
+        </div>
+      </a>
+
+      <a href="https://walkrunwrestle.github.io/WARRIOR_FINAL/" class="run-card coming">
+        <div>
+          <div class="run-top">
+            <div class="run-title">THE WARRIOR 21K</div>
+            <div class="badge">LIVE NOW</div>
+          </div>
+
+          <div class="run-line">Log your Warrior progress</div>
+        </div>
+
+        <div class="run-bottom">
+          <div class="run-reward">START HERE</div>
+          <div class="run-arrow">→</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- NEW HERE -->
+  <div id="before-start" class="card">
+    <div class="card-title">New here? How WRW works</div>
+    <div class="card-sub">Everything you need to know before you start your challenge.</div>
+
+    <div class="install-box" id="howBox" style="margin-top:18px;">
+      <button class="install-toggle" onclick="toggleHow()">HOW WRW WORKS</button>
+
+      <div class="install-content">
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Track your walk or run using Strava or any fitness app you like.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Take a screenshot or keep clear proof of each session.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Log each session inside your WRW challenge tracker.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">When the full challenge is complete, send your proof.</div></div>
+        </div>
+
+        <div class="info-list">
+          <div class="info-item"><strong>You can split the run:</strong> complete your challenge over one or more sessions.</div>
+          <div class="info-item"><strong>Proof is needed at the end:</strong> send your proof when the full challenge is complete.</div>
+          <div class="info-item"><strong>Your medal follows completion:</strong> once your challenge is complete and proof is sent, we dispatch your medal.</div>
+          <div class="info-item"><strong>Any tracker is fine:</strong> Strava is recommended, but any app or device that clearly shows your distance works.</div>
+        </div>
+
+        <div class="download-grid">
+          <a href="https://play.google.com/store/apps/details?id=com.strava" class="btn primary">Strava for Android</a>
+          <a href="https://apps.apple.com/app/strava-run-ride-hike/id426826309" class="btn primary">Strava for iPhone</a>
+        </div>
+
+        <div style="margin-top:16px; padding-top:12px; border-top:1px solid var(--border);">
+          <p style="font-size:.8rem; line-height:1.5; color:#7f8782; text-align:center;">
+            WRW is not affiliated with or endorsed by Strava. You can use any app or device you wish that clearly shows your distance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTALL -->
+  <div id="install-section" class="card">
+    <div class="card-title">Download WRW to your phone</div>
+    <div class="card-sub">Open WRW instantly anytime. No login. No setup.</div>
+
+    <div class="install-box" id="installBox">
+      <button class="install-toggle" onclick="toggleInstall()">WRW APP</button>
+
+      <div class="install-content">
+        <button class="btn primary" onclick="installApp()">Download WRW</button>
+        <button class="btn secondary" onclick="showInstallHelp()">How to install</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="help-line">
+    Need help? <a href="mailto:Contact@walkrunwrestle.com">Contact@walkrunwrestle.com</a>
+    <a href="https://walkrunwrestle.github.io/Wrw-vault/" class="btn primary" style="margin:14px auto 0; max-width:260px;">Open Card Vault</a>
+  </div>
+
+  <div class="store-wrap">
+    <button class="btn secondary" onclick="openSite()">Visit WalkRunWrestle.com</button>
+  </div>
+
+  <div class="trust">No accounts. No pressure. Just your run.</div>
+  <footer>© WRW</footer>
+
+</div>
+
+<script>
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+});
+
+function installApp() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      deferredPrompt = null;
+    });
+  } else {
+    showInstallHelp();
+  }
+}
+
+function toggleInstall(){
+  document.getElementById('installBox').classList.toggle('open');
+}
+
+function toggleHow(){
+  document.getElementById('howBox').classList.toggle('open');
+}
+
+function openSite(){
+  window.open("https://www.walkrunwrestle.com", "_blank");
+}
+
+function showInstallHelp(){
+  alert("To install WRW:\n\nAndroid:\nTap the 3 dots in your browser → Add to Home screen\n\niPhone:\nTap Share → Add to Home Screen");
+}
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => console.log("Service Worker registered"))
+      .catch((err) => console.log("SW error:", err));
+  });
+}
+</script>
+
+</body>
+</html>
